@@ -1,27 +1,14 @@
-Docker DockerFile for CentOs Nginx Demo
-=======================================
-
-Dockerfile中的第一个`yum clean all`是必要的，否则安装时会出错如下错误：
+Docker Nginx Https Demo
+========================
 
 ```
-Errno 14 PYCURL ERROR 22 The requested URL returned error 403 Forbidden
+openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -nodes -subj '/CN=localhost' -days 3650
 ```
 
 ```
-docker build .
+npm run up
 ```
 
-Notice the last output line:
-
 ```
-Successfully built xxxxxx
+npm run down
 ```
-
-Then run:
-
-```
-docker run -p 20080:80 xxxxx
-```
-
-Then visit: http://localhost:20080
-
